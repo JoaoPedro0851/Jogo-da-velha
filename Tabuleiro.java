@@ -1,5 +1,4 @@
 
-
 public class Tabuleiro {
 
     private int casas[][];
@@ -21,12 +20,25 @@ public class Tabuleiro {
         }
     }
 
+    public int[] getPosicao(String coordenada) {
+        char coluna = coordenada.charAt(0);
+        char linha = coordenada.charAt(1);
+
+        int x = coluna - 'A';
+        int y = linha - '1';
+
+        return new int[]{x, y};
+    }
+
     public void realizarLance(Jogador jogador, int posicao) {
 
     }
 
-    public boolean verificarGanhador(Jogador jogador) {
-        return false;
+    public int verificarGanhador(Jogador jogador, int posicao) {
+        for (int i = 0; i < 3; i++) {
+
+        }
+        return 0;
     }
 
     public void exibirTabuleiro() {
@@ -49,4 +61,3 @@ public class Tabuleiro {
         }
     }
 }
-
