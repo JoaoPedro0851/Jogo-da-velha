@@ -34,10 +34,35 @@ public class Tabuleiro {
 
     }
 
-    public int verificarGanhador(Jogador jogador, int posicao) {
-        for (int i = 0; i < 3; i++) {
+    public int verificarGanhador(Jogador jogador, String coordenada) {
+        int[] pos = getPosicao(coordenada);
+        int x = pos[0];
+        int y = pos[1];
 
+        if (MatrizFunctions.sumLinha(casas, x) == 3) {
+            return 1;
+        } else if (MatrizFunctions.sumLinha(casas, x) == 6) {
+            return 2;
         }
+
+        if (MatrizFunctions.sumColuna(casas, y) == 3) {
+            return 1;
+        } else if (MatrizFunctions.sumColuna(casas, y) == 6) {
+            return 2;
+        }
+
+        if (MatrizFunctions.sumMainDiagonal(casas) == 3) {
+            return 1;
+        } else if (MatrizFunctions.sumMainDiagonal(casas) == 6) {
+            return 2;
+        }
+
+        if (MatrizFunctions.sumSecDiagonal(casas) == 3) {
+            return 1;
+        } else if (MatrizFunctions.sumSecDiagonal(casas) == 6) {
+            return 2;
+        }
+
         return 0;
     }
 
